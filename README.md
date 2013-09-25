@@ -1,5 +1,5 @@
 # blippex_api
-A ruby wrapper for the blippex search engine made bythe people, forthe people. 
+A ruby wrapper for the blippex search engine made bythe people, forthe people.
 
 You can find out more about the Blippex API [here](https://archify.atlassian.net/wiki/display/blippexAPI/api.blippex.org).
 
@@ -53,7 +53,7 @@ The response is returned within a `Hashie::Mash` instance.
       "value"=>"83115"
     },
     {
-      "date"=>"2013-09-23T00:00:00+00:00", 
+      "date"=>"2013-09-23T00:00:00+00:00",
       "value"=>"70182"
     }
   ]
@@ -71,10 +71,10 @@ As above, the response is returned within a `Hashie::Mash` instance.
 ```ruby
 {
   "request"=> {
-    "days"=>2, 
-    "weight"=>20, 
-    "limit"=>1, 
-    "offset"=>1, 
+    "days"=>2,
+    "weight"=>20,
+    "limit"=>1,
+    "offset"=>1,
     "query"=>"Lakers"
     },
     "total"=>31,
@@ -118,13 +118,13 @@ As above, the response is returned within a `Hashie::Mash` instance.
   "ip"=>"00.0.000.00",
   "data"=> {
     "info"=> {
-      "remaining"=>997, 
-      "reset"=>1380136296, 
+      "remaining"=>997,
+      "reset"=>1380136296,
       "limit"=>1000
     },
     "search"=> {
-      "remaining"=>3587, 
-      "reset"=>1380136296, 
+      "remaining"=>3587,
+      "reset"=>1380136296,
       "limit"=>3600
     }
   }
@@ -144,4 +144,3 @@ Please note that a number of tests still need to be added so I don't currently h
 
 ## Feedback
 I would be more than happy to recieve feedback, please email me at: jonathan.chrisp@gmail.com.
-
