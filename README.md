@@ -1,3 +1,9 @@
+[![Gem Version](https://badge.fury.io/rb/blippex_api.png)](http://badge.fury.io/rb/blippex_api)
+[![Build Status](https://travis-ci.org/jonathanchrisp/blippex_api.png?branch=master)](https://travis-ci.org/jonathanchrisp/blippex_api)
+[![Dependency Status](https://gemnasium.com/jonathanchrisp/blippex_api.png)](https://gemnasium.com/jonathanchrisp/blippex_api)
+[![Code Climate](https://codeclimate.com/github/jonathanchrisp/blippex_api.png)](https://codeclimate.com/github/jonathanchrisp/blippex_api)
+[![Coverage Status](https://coveralls.io/repos/jonathanchrisp/blippex_api/badge.png?branch=master)](https://coveralls.io/r/jonathanchrisp/blippex_api?branch=master)
+
 # blippex_api
 A ruby wrapper for the blippex search engine made bythe people, forthe people.
 
