@@ -4,7 +4,7 @@ module BlippexAPI
 
       # Get search engine stats
       #
-      # @return [Hashie::Mash] Hash containing the results
+      # @return [Hashie::Mash] Hash containing the response
       def info
         get 'info'
       end

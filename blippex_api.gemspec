@@ -1,16 +1,16 @@
-require File.dirname(__FILE__) + "/lib/blippexapi/version"
+require File.dirname(__FILE__) + "/lib/blippex_api/version"
 
 Gem::Specification.new do |s|
-  s.name        = 'blippexapi'
+  s.name        = 'blippex_api'
   s.version     = BlippexAPI::VERSION
   s.version     = BlippexAPI::VERSION + ".pre.#{ENV['TRAVIS_BUILD_NUMBER']}" if ENV['TRAVIS']
-  s.date        = '2013-09-20'
-  s.summary     = 'Brandwatch v2 API Wrapper'
+  s.date        = '2013-09-25'
+  s.summary     = 'Blippex API ruby wrapper'
   s.description = 'A ruby wrapper for the blippex search engine API made bythe people, forthe people'
   s.author      = 'Jonathan Chrisp'
   s.email       = 'jonathan@brandwatch.com'
   s.license     = 'MIT'
-  s.homepage    = 'https://github.com/jonathanchrisp/blippexapi'
+  s.homepage    = 'https://github.com/jonathanchrisp/blippex_api'
   s.required_ruby_version = ">= 1.9.2"
 
   s.add_development_dependency 'rspec', '~> 2.13.0'
