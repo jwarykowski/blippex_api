@@ -1,0 +1,16 @@
+language: ruby
+
+rvm:
+- 2.0.0
+- 1.9.3
+- 1.9.2
+
+script: bundle exec rspec
+
+deploy:
+  provider: rubygems
+  api_key:
+    secure: Y87RrmR7ZbZoZU9IfqCX9zuyQ3+47Xik68jQW9rr1LLuFFZhMhwz7+cBSm6g/3fnN8HMBPCavXnuqOZ6qlt7vtqLEik12e/cUPW5mzgLGafEkv6QYhWrIjl+tyIPyQvlAVm0+UyonBkkLKEa9pCdCVIgwQzqCW4wqG/HjiPOxzA=
+  gem: blippex_api
+  on:
+    repo: jonathanchrisp/blippex_api
