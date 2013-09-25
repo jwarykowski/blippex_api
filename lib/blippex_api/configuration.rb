@@ -7,14 +7,12 @@ module BlippexAPI
     OPTION_KEYS = [
       'adapter',
       'api_endpoint',
-      'user_agent',
-      'file_type'
+      'user_agent'
     ].freeze
 
     DEFAULT_ADAPTER       = Faraday.default_adapter
     DEFAULT_API_ENDPOINT  = 'https://api.blippex.org/'
     DEFAULT_USER_AGENT    = "BlippexAPI Ruby Gem #{BlippexAPI::VERSION}".freeze
-    DEFAULT_FILE_TYPE     = 'json'
 
     attr_accessor *OPTION_KEYS
 
@@ -38,7 +36,6 @@ module BlippexAPI
       self.adapter      = DEFAULT_ADAPTER
       self.user_agent   = DEFAULT_USER_AGENT
       self.api_endpoint = DEFAULT_API_ENDPOINT
-      self.file_type    = DEFAULT_FILE_TYPE
     end
   end
 end
