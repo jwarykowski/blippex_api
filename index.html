@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <title>Blippex api by jonathanchrisp</title>
+  </head>
+
+  <body>
+    <div id="container">
+      <div class="inner">
+
+        <header>
+          <h1>Blippex api</h1>
+          <h2>A ruby wrapper for the blippex search engine API, made bythe people, forthe people</h2>
+        </header>
+
+        <section id="downloads" class="clearfix">
+          <a href="https://github.com/jonathanchrisp/blippex_api/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
+          <a href="https://github.com/jonathanchrisp/blippex_api/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
+          <a href="https://github.com/jonathanchrisp/blippex_api" id="view-on-github" class="button"><span>View on GitHub</span></a>
+        </section>
+
+        <hr>
+
+        <section id="main_content">
+          <p><a href="http://badge.fury.io/rb/blippex_api"><img src="https://badge.fury.io/rb/blippex_api.png" alt="Gem Version"></a>
+<a href="https://travis-ci.org/jonathanchrisp/blippex_api"><img src="https://travis-ci.org/jonathanchrisp/blippex_api.png?branch=master" alt="Build Status"></a>
+<a href="https://gemnasium.com/jonathanchrisp/blippex_api"><img src="https://gemnasium.com/jonathanchrisp/blippex_api.png" alt="Dependency Status"></a>
+<a href="https://codeclimate.com/github/jonathanchrisp/blippex_api"><img src="https://codeclimate.com/github/jonathanchrisp/blippex_api.png" alt="Code Climate"></a>
+<a href="https://coveralls.io/r/jonathanchrisp/blippex_api?branch=master"><img src="https://coveralls.io/repos/jonathanchrisp/blippex_api/badge.png?branch=master" alt="Coverage Status"></a></p>
+
+<p>You can find out more about the Blippex API <a href="https://archify.atlassian.net/wiki/display/blippexAPI/api.blippex.org">here</a>.</p>
+
+<h2>
+<a name="documentation" class="anchor" href="#documentation"><span class="octicon octicon-link"></span></a>Documentation</h2>
+
+<ul>
+<li>Original documenation: <a href="https://archify.atlassian.net/wiki/display/blippexAPI/api.blippex.org">https://archify.atlassian.net/wiki/display/blippexAPI/api.blippex.org</a>
+</li>
+<li>Gem documentation: <a href="http://rubydoc.info/gems/blippex_api">http://rubydoc.info/gems/blippex_api</a>
+</li>
+</ul><h2>
+<a name="getting-started" class="anchor" href="#getting-started"><span class="octicon octicon-link"></span></a>Getting Started</h2>
+
+<p>In order to be able to send API requests you'll first need to install the <code>blippex_api</code> gem.</p>
+
+<div class="highlight highlight-ruby"><pre><span class="n">gem</span> <span class="n">install</span> <span class="n">blippex_api</span>
+</pre></div>
+
+<p>Once you have completed the steps above, you can now create an instance of a <code>BlippexAPI::Client</code>:</p>
+
+<div class="highlight highlight-ruby"><pre><span class="nb">require</span> <span class="s1">'blippex_api'</span>
+<span class="n">api</span> <span class="o">=</span> <span class="ss">BlippexAPI</span><span class="p">:</span><span class="ss">:Client</span><span class="o">.</span><span class="n">new</span>
+</pre></div>
+
+<p>If you now look at your <code>BlippexAPI</code> object instance it will be similar to the following:</p>
+
+<div class="highlight highlight-ruby"><pre><span class="o">&lt;</span><span class="ss">BlippexAPI</span><span class="p">:</span><span class="ss">:Client</span><span class="p">:</span><span class="mh">0x007fe9a23055f0</span>
+<span class="vi">@adapter</span><span class="o">=</span><span class="ss">:net_http</span><span class="p">,</span>
+<span class="vi">@api_endpoint</span><span class="o">=</span><span class="s2">"https://api.blippex.org/"</span><span class="p">,</span>
+<span class="vi">@user_agent</span><span class="o">=</span><span class="s2">"BlippexAPI Ruby Gem 1.0.0"</span><span class="o">&gt;</span>
+</pre></div>
+
+<h2>
+<a name="example-requests" class="anchor" href="#example-requests"><span class="octicon octicon-link"></span></a>Example requests</h2>
+
+<p>Now that you have an <code>BlippexAPI::Client</code> instance you can now make requests.</p>
+
+<h3>
+<a name="info-endpoint" class="anchor" href="#info-endpoint"><span class="octicon octicon-link"></span></a>info endpoint</h3>
+
+<div class="highlight highlight-ruby"><pre><span class="n">api</span><span class="o">.</span><span class="n">info</span>
+</pre></div>
+
+<p>The response is returned within a <code>Hashie::Mash</code> instance.</p>
+
+<div class="highlight highlight-ruby"><pre><span class="p">{</span>
+  <span class="s2">"total_page_count"</span><span class="o">=&gt;</span><span class="mi">5654101</span><span class="p">,</span>
+  <span class="s2">"total_pageview_count"</span><span class="o">=&gt;</span><span class="mi">8662559</span><span class="p">,</span>
+  <span class="s2">"yesterday_page_count"</span><span class="o">=&gt;</span><span class="mi">55708</span><span class="p">,</span>
+  <span class="s2">"yesterday_pageview_count"</span><span class="o">=&gt;</span><span class="mi">67842</span><span class="p">,</span>
+  <span class="s2">"search_count_history"</span><span class="o">=&gt;</span> <span class="o">[</span>
+    <span class="p">{</span>
+      <span class="s2">"date"</span><span class="o">=&gt;</span><span class="s2">"2013-09-24T00:00:00+00:00"</span><span class="p">,</span>
+      <span class="s2">"value"</span><span class="o">=&gt;</span><span class="s2">"83115"</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s2">"date"</span><span class="o">=&gt;</span><span class="s2">"2013-09-23T00:00:00+00:00"</span><span class="p">,</span>
+      <span class="s2">"value"</span><span class="o">=&gt;</span><span class="s2">"70182"</span>
+    <span class="p">}</span>
+  <span class="o">]</span>
+<span class="p">}</span>
+</pre></div>
+
+<h3>
+<a name="search-endpoint" class="anchor" href="#search-endpoint"><span class="octicon octicon-link"></span></a>search endpoint</h3>
+
+<div class="highlight highlight-ruby"><pre><span class="n">api</span><span class="o">.</span><span class="n">search</span> <span class="ss">:q</span> <span class="o">=&gt;</span> <span class="s1">'Lakers'</span><span class="p">,</span> <span class="ss">:w</span> <span class="o">=&gt;</span> <span class="mi">20</span><span class="p">,</span> <span class="ss">:d</span> <span class="o">=&gt;</span> <span class="mi">2</span><span class="p">,</span> <span class="ss">:highlight</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span> <span class="ss">:limit</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span> <span class="ss">:offset</span> <span class="o">=&gt;</span> <span class="mi">1</span>
+</pre></div>
+
+<p>As above, the response is returned within a <code>Hashie::Mash</code> instance.</p>
+
+<div class="highlight highlight-ruby"><pre><span class="p">{</span>
+  <span class="s2">"request"</span><span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="s2">"days"</span><span class="o">=&gt;</span><span class="mi">2</span><span class="p">,</span>
+    <span class="s2">"weight"</span><span class="o">=&gt;</span><span class="mi">20</span><span class="p">,</span>
+    <span class="s2">"limit"</span><span class="o">=&gt;</span><span class="mi">1</span><span class="p">,</span>
+    <span class="s2">"offset"</span><span class="o">=&gt;</span><span class="mi">1</span><span class="p">,</span>
+    <span class="s2">"query"</span><span class="o">=&gt;</span><span class="s2">"Lakers"</span>
+    <span class="p">},</span>
+    <span class="s2">"total"</span><span class="o">=&gt;</span><span class="mi">31</span><span class="p">,</span>
+    <span class="s2">"hits_displayed"</span><span class="o">=&gt;</span><span class="mi">1</span><span class="p">,</span>
+    <span class="s2">"results"</span><span class="o">=&gt;</span> <span class="o">[</span>
+      <span class="p">{</span>
+        <span class="s2">"_id"</span><span class="o">=&gt;</span><span class="s2">"1d431326999324b8eccb85b7399553f4"</span><span class="p">,</span>
+        <span class="s2">"_source"</span><span class="o">=&gt;</span><span class="s2">"Blippex"</span><span class="p">,</span>
+        <span class="s2">"url"</span><span class="o">=&gt;</span><span class="s2">"http://about.me/claresayas"</span><span class="p">,</span>
+        <span class="s2">"last_seen_at"</span><span class="o">=&gt;</span><span class="s2">"2013-09-24T15:17:25-07:00"</span><span class="p">,</span>
+        <span class="s2">"language"</span><span class="o">=&gt;</span><span class="s2">"en"</span><span class="p">,</span>
+        <span class="s2">"title"</span><span class="o">=&gt;</span><span class="s2">"Clare Sayas (claresayas) on about.me"</span><span class="p">,</span>
+        <span class="s2">"highlight"</span><span class="o">=&gt;</span>
+          <span class="s2">" of the community managers for EdelmanSV.</span><span class="se">\n</span><span class="s2">On a mission to help entrepreuners find their voice and advance the field of public engagement.</span><span class="se">\n</span><span class="s2">&lt;mark&gt;Lakers&lt;/mark&gt; fan, film/tv enthusiast, relentless home"</span><span class="p">,</span>
+        <span class="s2">"score"</span><span class="o">=&gt;</span> <span class="p">{</span>
+          <span class="s2">"score_raw_elasticsearch"</span><span class="o">=&gt;</span><span class="mi">0</span><span class="p">,</span>
+          <span class="s2">"score_raw_dwell"</span><span class="o">=&gt;</span><span class="mi">4</span><span class="o">.</span><span class="mi">3298473876598</span><span class="p">,</span>
+          <span class="s2">"sum_time_spend"</span><span class="o">=&gt;</span><span class="mi">38</span><span class="p">,</span>
+          <span class="s2">"sum_visits"</span><span class="o">=&gt;</span><span class="mi">3</span><span class="p">,</span>
+          <span class="s2">"score_clean_elasticsearch"</span><span class="o">=&gt;</span><span class="mi">0</span><span class="p">,</span>
+          <span class="s2">"score_clean_dwell"</span><span class="o">=&gt;</span><span class="mi">0</span><span class="o">.</span><span class="mi">86449725527946</span><span class="p">,</span>
+          <span class="s2">"score_final"</span><span class="o">=&gt;</span><span class="mi">0</span><span class="o">.</span><span class="mi">69159780422356</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="o">]</span><span class="p">,</span>
+    <span class="s2">"total_pages_in_db"</span><span class="o">=&gt;</span><span class="mi">5687567</span>
+<span class="p">}</span>
+
+</pre></div>
+
+<h3>
+<a name="ratelimitstatus-endpoint" class="anchor" href="#ratelimitstatus-endpoint"><span class="octicon octicon-link"></span></a>ratelimitstatus endpoint</h3>
+
+<div class="highlight highlight-ruby"><pre><span class="n">api</span><span class="o">.</span><span class="n">rate_limit_status</span>
+</pre></div>
+
+<p>As above, the response is returned within a <code>Hashie::Mash</code> instance.</p>
+
+<div class="highlight highlight-ruby"><pre><span class="p">{</span>
+  <span class="s2">"ip"</span><span class="o">=&gt;</span><span class="s2">"00.0.000.00"</span><span class="p">,</span>
+  <span class="s2">"data"</span><span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="s2">"info"</span><span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="s2">"remaining"</span><span class="o">=&gt;</span><span class="mi">997</span><span class="p">,</span>
+      <span class="s2">"reset"</span><span class="o">=&gt;</span><span class="mi">1380136296</span><span class="p">,</span>
+      <span class="s2">"limit"</span><span class="o">=&gt;</span><span class="mi">1000</span>
+    <span class="p">},</span>
+    <span class="s2">"search"</span><span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="s2">"remaining"</span><span class="o">=&gt;</span><span class="mi">3587</span><span class="p">,</span>
+      <span class="s2">"reset"</span><span class="o">=&gt;</span><span class="mi">1380136296</span><span class="p">,</span>
+      <span class="s2">"limit"</span><span class="o">=&gt;</span><span class="mi">3600</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>To find out more information about <code>Hashie</code> please visit the following link: <a href="https://github.com/intridea/hashie">https://github.com/intridea/hashie</a>.</p>
+
+<h2>
+<a name="tests" class="anchor" href="#tests"><span class="octicon octicon-link"></span></a>Tests</h2>
+
+<p>There are a number of unit tests which are included as part of this project, please run:</p>
+
+<div class="highlight highlight-ruby"><pre><span class="n">rspec</span> <span class="n">spec</span>
+</pre></div>
+
+<p>Please note that a number of tests still need to be added so I don't currently have complete coverage, subject to workload these will be slowly added over the next few months.</p>
+
+<h2>
+<a name="feedback" class="anchor" href="#feedback"><span class="octicon octicon-link"></span></a>Feedback</h2>
+
+<p>I would be more than happy to recieve feedback, please email me at: <a href="mailto:jonathan.chrisp@gmail.com">jonathan.chrisp@gmail.com</a>.</p>
+        </section>
+
+        <footer>
+          Blippex api is maintained by <a href="https://github.com/jonathanchrisp">jonathanchrisp</a><br>
+          This page was generated by <a href="http://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
+        </footer>
+
+                  <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-38101452-15");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+      </div>
+    </div>
+  </body>
+</html>
