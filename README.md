@@ -1,3 +1,4 @@
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/jonathanchrisp/blippex_api/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 [![Gem Version](https://badge.fury.io/rb/blippex_api.png)](http://badge.fury.io/rb/blippex_api)
 [![Build Status](https://travis-ci.org/jonathanchrisp/blippex_api.png?branch=master)](https://travis-ci.org/jonathanchrisp/blippex_api)
 [![Dependency Status](https://gemnasium.com/jonathanchrisp/blippex_api.png)](https://gemnasium.com/jonathanchrisp/blippex_api)
